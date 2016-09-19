@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+html * {
+ font-family: HelveticaNeue;
+ letter-spacing: .5px;
+}
+
+body {
+ margin: 0px;
+}
+
+html, body {
+ height: 100%;
+}
+
+@font-face {
+ font-family: HelveticaNeue;
+ src: url(/fonts/HelveticaNeue-Thin.otf);
+ font-weight: normal;
+}
+
+@font-face {
+ font-family: HelveticaNeue;
+ src: url(/fonts/HelveticaNeue-Light.otf);
+ font-weight: 300;
+}
+
+@font-face {
+ font-family: HelveticaNeue;
+ src: url(/fonts/HelveticaNeue-Medium.otf);
+ font-weight: bold;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+   outline: none;
+}
