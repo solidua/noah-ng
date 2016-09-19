@@ -3,3 +3,7 @@
 // https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html
 
 declare var System: any;
+
+// Temporary Workaround
+declare var require: any;
+declare var module: any;
