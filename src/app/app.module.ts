@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { SignupMainComponent } from './signup-main/signup-main.component';
+
 import { routing } from './app.routing';
 
 // Must export the config
