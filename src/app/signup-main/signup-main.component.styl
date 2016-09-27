@@ -1,13 +1,15 @@
 #signup-container
 	height: 100%
-	text-align: center
+	min-width: 373px
+	margin: 50px 0px
+	text-align: center 
 	// display: flex
 	// justify-content: center
 	.logo-lg
 		font-size: 72px
 		font-weight: bold
 		color: #E1E1E1
-		padding: 50px 80px
+		margin-bottom: 50px
 	#signup-form	
 		.form-group
 			margin-bottom: 14px
@@ -21,7 +23,7 @@
 				width: 313px
 				padding: 13px 17px 
 		.button-submit
-			font-weight: 300
+			font-weight: bold   
 			box-sizing: border-box
 			width: 313px
 			border: none
@@ -39,10 +41,10 @@
 			width: 313px
 			border: none
 			border-radius: 6px
-			padding: 13px 0px
+			padding: 13px 0px 13px 32px
 			text-align: center
 			font-size: 16px
-			background-color: #3B5998
+			background: #3B5998 url(images/facebook_icon.svg) 53px 13px no-repeat
 			color: white
 		#signup-or
 			margin: 15px 0px 15px
@@ -55,8 +57,9 @@
 			font-size: 15px
 			box-sizing: border-box
 			border: none
-			text-align: center
-			background-color: white
+			text-align: center   
+			background: white url(images/twitter_icon.svg) 12px 2px no-repeat
+			padding: 5px 40px 5px 40px
 		#signup-google
 			font-weight: bold
 			color: #C4C4C4
@@ -64,7 +67,8 @@
 			box-sizing: border-box
 			border: none
 			text-align: center
-			background-color: white
+			background: white url(images/google_icon.svg) 12px 2px no-repeat
+			padding: 5px 18px 5px 40px
 	#signin-link
 		margin-top: 30px
 		color: #C4C4C4
@@ -72,4 +76,4 @@
 		font-weight: 300
 		#signin-link-highlighted
 			color: #6DC675
-			text-decoration: none
+			text-decoration: none   
