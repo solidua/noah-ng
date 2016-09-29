@@ -1,79 +1,64 @@
+.button-lg // Sign Up Submit Button, Sign Up Facebook Button
+	border-radius: 6px
+	border: none
+	box-sizing: border-box
+	color: white
+	font-size: 16px
+	font-weight: bold
+	text-align: center
+	width: 313px
+	
+
 #signup-container
 	height: 100%
-	min-width: 373px
 	margin: 50px 0px
+	min-width: 373px
 	text-align: center 
 	// display: flex
 	// justify-content: center
 	.logo-lg
+		color: #E1E1E1
 		font-size: 72px
 		font-weight: bold
-		color: #E1E1E1
 		margin-bottom: 50px
 	#signup-form	
 		.form-group
 			margin-bottom: 14px
-			input
-				box-sizing: border-box
+			input // Email, Full Name, Password
 				background-color: #F7F7F7
-				border: none
 				border-radius: 6px
-				color: #C4C4C4
+				border: none
+				box-sizing: border-box
 				font-size: 15px
+				padding: 13px 17px 				
 				width: 313px
-				padding: 13px 17px 
 		.button-submit
-			font-weight: bold   
-			box-sizing: border-box
-			width: 313px
-			border: none
-			border-radius: 6px
-			padding: 13px 0px
-			text-align: center
-			font-size: 16px
 			background-color: #6DC675
-			color: white
+			padding: 13px 0px
 	#signup-social
 		#signup-facebook
+			background: #3B5998 url(images/facebook_icon.svg) 53px 12px no-repeat
 			margin-top: 30px
-			font-weight: bold
-			box-sizing: border-box
-			width: 313px
-			border: none
-			border-radius: 6px
 			padding: 13px 0px 13px 32px
-			text-align: center
-			font-size: 16px
-			background: #3B5998 url(images/facebook_icon.svg) 53px 13px no-repeat
-			color: white
 		#signup-or
 			margin: 15px 0px 15px
-			color: #C4C4C4
-			font-size: 15px
-			font-weight: 300
-		#signup-twitter
-			font-weight: bold
-			color: #00ACED
-			font-size: 15px
-			box-sizing: border-box
+		button // signup-twitter, signup-google
 			border: none
-			text-align: center   
+			box-sizing: border-box
+			font-size: 15px
+			font-weight: bold
+			text-align: center
+		#signup-twitter
 			background: white url(images/twitter_icon.svg) 12px 2px no-repeat
+			color: #00ACED
 			padding: 5px 40px 5px 40px
 		#signup-google
-			font-weight: bold
-			color: #C4C4C4
-			font-size: 15px
-			box-sizing: border-box
-			border: none
-			text-align: center
 			background: white url(images/google_icon.svg) 12px 2px no-repeat
+			color: #C4C4C4
 			padding: 5px 18px 5px 40px
 	#signin-link
-		margin-top: 30px
-		color: #C4C4C4
-		font-size: 15px
 		font-weight: 300
+		margin-top: 30px
 		#signin-link-highlighted
 			color: #6DC675
 			text-decoration: none   
