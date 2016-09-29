@@ -38,3 +38,8 @@ textarea:focus,
 button:focus {
    outline: none;
 }
+
+/*Shows pointer on buttons*/
+button {
+	cursor: pointer;
+}

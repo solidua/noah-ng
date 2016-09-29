@@ -8,36 +8,25 @@
 	font-weight: bold
 	text-align: center
 	width: 313px
-	
+	transition: all .15s ease;
+
 // Animations
-.button-submit:hover
-	transition: all .15s ease;
-	background-color: hsla(125,44%,63%,1)
-	transform: translate(0,-1px)
-	box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
+
 	
-.button-submit:active
-	color: hsla(125,28%,92%,1)
-	background-color: hsla(125,44%,55%,1)
+#signin-facebook:hover
+	background-color: hsla(221,44%,45%,1) !important
+	box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
+	transform: translate(0,-1px)
 	transition: all .15s ease;
-	transform: translate(0,1px)
+	
+#signin-facebook:active
+	background-color: hsla(221,44%,37%,1) !important
 	box-shadow: 0 0 0
-	
-#signup-facebook:hover
-	transition: all .15s ease;
-	background-color: hsla(221,44%,45%,1)
-	transform: translate(0,-1px)
-	box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
-	
-#signup-facebook:active
 	color: hsla(221,28%,92%,1)
-	background-color: hsla(221,44%,37%,1)
-	transition: all .15s ease;
 	transform: translate(0,1px)
-	box-shadow: 0 0 0
-	
-// Main CSS Structure
-#signup-container
+	transition: all .15s ease;
+
+#signin-container
 	height: 100%
 	margin: 50px 0px
 	min-width: 373px
@@ -48,8 +37,8 @@
 		color: #E1E1E1
 		font-size: 72px
 		font-weight: bold
-		margin-bottom: 50px
-	#signup-form	
+		margin-bottom: 80px
+	#signin-form	
 		.form-group
 			margin-bottom: 14px
 			input // Email, Full Name, Password
@@ -63,30 +52,44 @@
 		.button-submit
 			background-color: #6DC675
 			padding: 13px 0px
-	#signup-social
-		#signup-facebook
+			transition: all .15s ease
+// Animations ------------------------------------------------------
+		.button-submit:hover
+			background-color: hsla(125,44%,63%,1) !important
+			box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
+			transform: translate(0,-1px)
+			// transition: all .15s ease
+		.button-submit:active
+			background-color: hsla(125,44%,56%,1) !important
+			box-shadow: 0 0 0
+			color: hsla(125,28%,92%,1)
+			transform: translate(0,1px)
+			// transition: all .15s ease
+//-------------------------------------------------------------------
+	#signin-social
+		#signin-facebook
 			background: #3B5998 url(images/facebook_icon.svg) 53px 12px no-repeat
 			margin-top: 30px
 			padding: 13px 0px 13px 32px
-		#signup-or
+		#signin-or
 			margin: 15px 0px 15px
-		button // signup-twitter, signup-google
+		button // signin-twitter, signin-google
 			border: none
 			box-sizing: border-box
 			font-size: 15px
 			font-weight: bold
 			text-align: center
-		#signup-twitter
+		#signin-twitter
 			background: white url(images/twitter_icon.svg) 12px 2px no-repeat
 			color: #00ACED
 			padding: 5px 40px 5px 40px
-		#signup-google
+		#signin-google
 			background: white url(images/google_icon.svg) 12px 2px no-repeat
 			color: #C4C4C4
 			padding: 5px 18px 5px 40px
-	#signin-link
+	#signup-link
 		font-weight: 300
 		margin-top: 30px
-		#signin-link-highlighted
+		#signup-link-highlighted
 			color: #6DC675
 			text-decoration: none   

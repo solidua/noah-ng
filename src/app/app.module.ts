@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { SignupMainComponent } from './signup-main/signup-main.component';
+import { SigninMainComponent } from './signin-main/signin-main.component';
 
 import { routing } from './app.routing';
 
@@ -20,7 +21,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    SignupMainComponent
+    SignupMainComponent,
+    SigninMainComponent
   ],
   imports: [
     BrowserModule,
