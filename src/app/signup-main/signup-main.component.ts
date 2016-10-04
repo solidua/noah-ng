@@ -9,12 +9,31 @@ import { UserService } from '../user.service';
 })
 
 export class SignupMainComponent implements OnInit {
+  newUser = {
+    'fullname': null, 
+    'email': null, 
+    'password': null 
+  }
 
   constructor(private userService: UserService) { 
-
   }
 
   ngOnInit() {
-    this.userService.createUser('Alvin Solidum', 'test@test.com', 'password')
+  }
+
+  onSubmit() {
+    this.userService.createUser(this.newUser.fullname, this.newUser.email, this.newUser.password)  
+  }
+
+  onFacebook() {
+    this.userService.fbSignin()
+  }
+
+  onGoogle() {
+    this.userService.googleSignin() 
+  }
+
+  onTwitter() {
+    this.userService.twitterSignin()
   }
 }

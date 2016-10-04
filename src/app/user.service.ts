@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2'
+import { AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2'
 
 @Injectable()
 export class UserService {
@@ -18,4 +18,26 @@ export class UserService {
       console.log(error)
     })
   }
+
+  fbSignin() {
+    this.afAuth.login({
+      provider: AuthProviders.Facebook,
+      method: AuthMethods.Popup
+    })
+  }
+
+  googleSignin() {
+    this.afAuth.login({
+      provider: AuthProviders.Google, 
+      method: AuthMethods.Popup
+    })
+  }
+
+  twitterSignin() {
+    this.afAuth.login({
+      provider: AuthProviders.Twitter, 
+      method: AuthMethods.Popup
+    })
+  }
+
 }

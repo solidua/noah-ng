@@ -1,24 +1,24 @@
 <div id="signup-container">
 	<div class="logo-lg">LOGO</div>
 
-	<form id="signup-form">
+	<form id="signup-form" (ngSubmit)=onSubmit() #signupForm="ngForm">
 		<div class="form-group">
-			<input type="email" name="email" placeholder="Email" class="form-control" required>
+			<input type="text" name="fullname" placeholder="Full Name" class="form-control" required [(ngModel)]="newUser.fullname">
 		</div>
 		<div class="form-group">
-			<input type="text" name="fullname" placeholder="Full Name" class="form-control" required>
+			<input type="email" name="email" placeholder="Email" class="form-control" required [(ngModel)]="newUser.email">
 		</div>
 		<div class="form-group">
-			<input type="password" name="password" placeholder="Password" class="form-control" required>
+			<input type="password" name="password" placeholder="Password" class="form-control" required [(ngModel)]="newUser.password">
 		</div>
 			<button type="submit" class="button-submit button-lg">Sign Up</button>
 	</form>
 
 	<div id="signup-social">
-		<button id="signup-facebook" class="button-lg">Sign up with Facebook</button>
+		<button id="signup-facebook" class="button-lg" (click)="onFacebook()">Sign up with Facebook</button>
 		<div id="signup-or" class="text-centered">or</div>
-		<button id="signup-twitter">Twitter</button>
-		<button id="signup-google">Google</button>
+		<button id="signup-twitter" (click)="onTwitter()">Twitter</button>
+		<button id="signup-google" (click)="onGoogle()">Google</button>
 	</div>
 
 	<div id="signin-link" class="text-centered">
