@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2'
+import { AngularFire, AngularFireAuth, AuthProviders, AuthMethods, FirebaseAuth} from 'angularfire2'
 
 @Injectable()
 export class UserService {
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private af: AngularFire, private afAuth: AngularFireAuth, private fbAuth: FirebaseAuth) { }
 
   createUser(fullname, email, password) {
     let credentials = {
@@ -12,10 +12,28 @@ export class UserService {
       'password' : password
     }
     this.afAuth.createUser(credentials).then((authData) => {
-      console.log('successfully created user')
-      console.log(authData)
+      console.log('successfully created user') 
+      credentials = null; 
+      firebase.auth().currentUser.updateProfile({displayName: fullname, photoURL: null}).then(function(success){
+        console.log(success)
+      }, function(error) {
+        console.log(error)
+      })
     }).catch((error) => {
       console.log(error)
+    })
+  }
+
+  signOut() {
+    this.afAuth.logout()
+  }
+
+  signin(credentials) {
+    this.afAuth.login(credentials, {
+      provider: AuthProviders.Password,
+      method: AuthMethods.Password
+    }).then((authData) => {
+      console.log('successfully signed in')
     })
   }
 
@@ -39,5 +57,4 @@ export class UserService {
       method: AuthMethods.Popup
     })
   }
-
 }
