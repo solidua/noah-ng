@@ -16,19 +16,19 @@ html, body {
 
 @font-face {
  font-family: HelveticaNeue;
- src: url(/assets/fonts/HelveticaNeue-Thin.otf);
+ src: url(assets/fonts/HelveticaNeue-Thin.otf);
  font-weight: normal;
 }
 
 @font-face {
  font-family: HelveticaNeue;
- src: url(/assets/fonts/HelveticaNeue-Light.otf);
+ src: url(assets/fonts/HelveticaNeue-Light.otf);
  font-weight: 300;
 }
 
 @font-face {
  font-family: HelveticaNeue;
- src: url(/assets/fonts/HelveticaNeue-Medium.otf);
+ src: url(assets/fonts/HelveticaNeue-Medium.otf);
  font-weight: bold;
 }
 
