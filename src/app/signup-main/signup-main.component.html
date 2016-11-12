@@ -15,10 +15,10 @@
 	</form>
 
 	<div id="signup-social">
-		<button id="signup-facebook" class="button-lg" (click)="onFacebook()">Sign up with Facebook</button>
+		<button id="signup-facebook" class="button-lg" (click)="userService.fbSignin()">Sign up with Facebook</button>
 		<div id="signup-or" class="text-centered">or</div>
-		<button id="signup-twitter" (click)="onTwitter()">Twitter</button>
-		<button id="signup-google" (click)="onGoogle()">Google</button>
+		<button id="signup-twitter" (click)="userService.twitterSignin()">Twitter</button>
+		<button id="signup-google" (click)="userService.googleSignin()">Google</button>
 	</div>
 
 	<div id="signin-link" class="text-centered">

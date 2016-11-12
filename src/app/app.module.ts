@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
+import { BibleMainComponent } from './bible-main/bible-main.component';
+
 import { SignupMainComponent } from './signup-main/signup-main.component';
 import { SigninMainComponent } from './signin-main/signin-main.component';
 
@@ -22,7 +24,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     SignupMainComponent,
-    SigninMainComponent
+    SigninMainComponent,
+    BibleMainComponent
   ],
   imports: [
     BrowserModule,
