@@ -1,7 +1,7 @@
-<div id="signup-container">
+<div id="register-container">
 	<div class="logo-lg">LOGO</div>
 
-	<form id="signup-form" (ngSubmit)=onSubmit() #signupForm="ngForm">
+	<form id="register-form" (ngSubmit)=onSubmit() #registerForm="ngForm">
 		<div class="form-group">
 			<input type="text" name="fullname" placeholder="Full Name" class="form-control" required [(ngModel)]="newUser.fullname">
 		</div>
@@ -11,17 +11,18 @@
 		<div class="form-group">
 			<input type="password" name="password" placeholder="Password" class="form-control" required [(ngModel)]="newUser.password">
 		</div>
-			<button type="submit" class="button-submit button-lg">Sign Up</button>
+			<button type="submit" class="button-submit button-lg">Register</button>
 	</form>
 
-	<div id="signup-social">
-		<button id="signup-facebook" class="button-lg" (click)="userService.fbSignin()">Sign up with Facebook</button>
-		<div id="signup-or" class="text-centered">or</div>
-		<button id="signup-twitter" (click)="userService.twitterSignin()">Twitter</button>
-		<button id="signup-google" (click)="userService.googleSignin()">Google</button>
+	<div id="register-social">
+		<button id="register-facebook" class="button-lg" (click)="userService.fbSignin()">Register with Facebook</button>
+		<div>
+			<button id="register-twitter" (click)="userService.twitterSignin()">Twitter</button>
+			<button id="register-google" (click)="userService.googleSignin()">Google</button>
+		</div>
 	</div>
 
 	<div id="signin-link" class="text-centered">
-		Already have an Account? Tap here to <br> <a routerLink="/signin" routerLinkActive="active" id="signin-link-highlighted" href="">Sign In.</a>
+		<a routerLink="/signin" routerLinkActive="active" href="">Sign in with existing account.</a>
 	</div>
 </div>

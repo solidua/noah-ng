@@ -1,3 +1,17 @@
+// For coloring placeholder
+placeholder()
+    &::-webkit-input-placeholder
+        {block}
+    &:-moz-placeholder
+        {block}
+    &::-moz-placeholder
+        {block}
+    &:-ms-input-placeholder
+        {block}
+
+//Colors
+ui-text = #C4C4C4
+
 .button-lg // Sign Up Submit Button, Sign Up Facebook Button
 	border-radius: 6px
 	border: none
@@ -9,35 +23,8 @@
 	text-align: center
 	width: 313px
 	
-// Animations
-.button-submit:hover
-	transition: all .15s ease;
-	background-color: hsla(125,44%,63%,1)
-	transform: translate(0,-1px)
-	box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
-	
-.button-submit:active
-	color: hsla(125,28%,92%,1)
-	background-color: hsla(125,44%,55%,1)
-	transition: all .15s ease;
-	transform: translate(0,1px)
-	box-shadow: 0 0 0
-	
-#signup-facebook:hover
-	transition: all .15s ease;
-	background-color: hsla(221,44%,45%,1)
-	transform: translate(0,-1px)
-	box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
-	
-#signup-facebook:active
-	color: hsla(221,28%,92%,1)
-	background-color: hsla(221,44%,37%,1)
-	transition: all .15s ease;
-	transform: translate(0,1px)
-	box-shadow: 0 0 0
-	
 // Main CSS Structure
-#signup-container
+#register-container
 	height: 100%
 	margin: 50px 0px
 	min-width: 373px
@@ -49,7 +36,7 @@
 		font-size: 72px
 		font-weight: bold
 		margin-bottom: 50px
-	#signup-form	
+	#register-form	
 		.form-group
 			margin-bottom: 14px
 			input // Email, Full Name, Password
@@ -60,33 +47,58 @@
 				font-size: 15px
 				padding: 13px 17px 				
 				width: 313px
+				+placeholder()
+					color: ui-text
+		:placeholder
+			color: red
 		.button-submit
 			background-color: #6DC675
 			padding: 13px 0px
-	#signup-social
-		#signup-facebook
+			&:hover
+				transition: all .15s ease;
+				background-color: hsla(125,44%,63%,1)
+				transform: translate(0,-1px)
+				box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
+			&:active
+				color: hsla(125,28%,92%,1)
+				background-color: hsla(125,44%,55%,1)
+				transition: all .15s ease;
+				transform: translate(0,1px)
+				box-shadow: 0 0 0
+	#register-social
+		#register-facebook
 			background: #3B5998 url(assets/images/facebook_icon.svg) 53px 12px no-repeat
-			margin-top: 30px
+			margin: 30px 0px
 			padding: 13px 0px 13px 32px
-		#signup-or
-			margin: 15px 0px 15px
-		button // signup-twitter, signup-google
+			&:hover
+				transition: all .15s ease;
+				background-color: hsla(221,44%,45%,1)
+				transform: translate(0,-1px)
+				box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
+			&:active
+				color: hsla(221,28%,92%,1)
+				background-color: hsla(221,44%,37%,1)
+				transition: all .15s ease;
+				transform: translate(0,1px)
+				box-shadow: 0 0 0		
+		button // register-twitter, register-google
 			border: none
 			box-sizing: border-box
 			font-size: 15px
 			font-weight: bold
 			text-align: center
-		#signup-twitter
+		#register-twitter
 			background: white url(assets/images/twitter_icon.svg) 12px 2px no-repeat
 			color: #00ACED
 			padding: 5px 40px 5px 40px
-		#signup-google
+		#register-google
 			background: white url(assets/images/google_icon.svg) 12px 2px no-repeat
-			color: #C4C4C4
+			color: ui-text
 			padding: 5px 18px 5px 40px
 	#signin-link
-		font-weight: 300
-		margin-top: 30px
-		#signin-link-highlighted
+		a
 			color: #6DC675
-			text-decoration: none   
+			font-weight: 300
+			font-size: 15px
+			text-decoration: none
+		margin-top: 30px 

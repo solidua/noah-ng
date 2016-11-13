@@ -13,12 +13,13 @@
 
 	<div id="signin-social">
 		<button id="signin-facebook" class="button-lg" (click)="userService.fbSignin()">Sign in with Facebook</button>
-		<div id="signin-or" class="text-centered">or</div>
-		<button id="signin-twitter" (click)="userService.twitterSignin()">Twitter</button>
-		<button id="signin-google" (click)="userService.googleSignin()">Google</button>
+		<div>
+			<button id="signin-twitter" (click)="userService.twitterSignin()">Twitter</button>
+			<button id="signin-google" (click)="userService.googleSignin()">Google</button>
+		</div>
 	</div>
 
-	<div id="signup-link" class="text-centered">
-		Don't have an Account? Tap here to <br> <a routerLink="/signup" routerLinkActive="active" id="signup-link-highlighted" href="">Sign Up.</a>
+	<div id="register-link" class="text-centered">
+		<a routerLink="/signup" routerLinkActive="active" href="">Register a new account.</a>
 	</div>
 </div>

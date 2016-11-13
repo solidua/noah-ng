@@ -1,3 +1,6 @@
+// Colors
+ui-text = #C4C4C4
+
 .button-lg // Sign Up Submit Button, Sign Up Facebook Button
 	border-radius: 6px
 	border: none
@@ -13,7 +16,8 @@
 // Sign-in Main Structure
 #signin-container
 	height: 100%
-	margin: 50px 0px
+	margin: 4rem auto
+	max-width: 24rem
 	min-width: 373px
 	text-align: center 
 	// display: flex
@@ -22,7 +26,7 @@
 		color: #E1E1E1
 		font-size: 72px
 		font-weight: bold
-		margin-bottom: 80px
+		margin-bottom: 5rem
 	#signin-form	
 		.form-group
 			margin-bottom: 14px
@@ -33,35 +37,36 @@
 				box-sizing: border-box
 				font-size: 15px
 				padding: 13px 17px 				
-				width: 313px
-		.button-submit:hover
-			background-color: hsla(125,44%,63%,1) 
-			box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
-			transform: translate(0,-1px)	
-		.button-submit:active
-			background-color: hsla(125,44%,56%,1)
-			box-shadow: 0 0 0
-			color: hsla(125,28%,92%,1)
-			transform: translate(0,1px)	
+				width: 313px		
 		.button-submit
 			background-color: #6DC675
 			padding: 13px 0px
 			transition: all .15s ease
-	#signin-social
-		#signin-facebook:hover
-			background-color: hsla(221,44%,45%,1)
-			box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
-			transform: translate(0,-1px)
-		#signin-facebook:active
-			background-color: hsla(221,44%,37%,1)
-			box-shadow: 0 0 0
-			color: hsla(221,28%,92%,1)
-			transform: translate(0,1px)
+			&:hover
+				background-color: hsla(125,44%,63%,1) 
+				box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
+				transform: translate(0,-1px)	
+			&:active
+				background-color: hsla(125,44%,56%,1)
+				box-shadow: 0 0 0
+				color: hsla(125,28%,92%,1)
+				transform: translate(0,1px)	
+	#signin-social		
 		#signin-facebook
 			background: #3B5998 url(assets/images/facebook_icon.svg) 53px 12px no-repeat
-			margin-top: 30px
+			margin: 30px 0px
 			padding: 13px 0px 13px 32px
+			&:hover
+				background-color: hsla(221,44%,45%,1)
+				box-shadow:0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)
+				transform: translate(0,-1px)
+			&:active
+				background-color: hsla(221,44%,37%,1)
+				box-shadow: 0 0 0
+				color: hsla(221,28%,92%,1)
+				transform: translate(0,1px)
 		#signin-or
+			color: ui-text
 			margin: 15px 0px 15px
 		button // signin-twitter, signin-google
 			border: none
@@ -69,23 +74,20 @@
 			font-size: 15px
 			font-weight: bold
 			text-align: center
-		#signin-twitter:hover
-			background: transparent url(assets/images/twitter_icon.svg) 12px 1px no-repeat
-			box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08)
-			transform: translate(0,-2px)
 		#signin-twitter
 			background: transparent url(assets/images/twitter_icon.svg) 12px 2px no-repeat
 			color: rgba(0, 172, 237, 1);
-			padding: 5px 20px 5px 40px
 			margin-right: 20px
-			transition: all .15s ease
+			padding: 5px 20px 5px 40px
 		#signin-google
 			background: white url(assets/images/google_icon.svg) 12px 2px no-repeat
-			color: #C4C4C4
+			color: ui-text
 			padding: 5px 20px 5px 40px
-	#signup-link
-		font-weight: 300
-		margin-top: 30px
-		#signup-link-highlighted
+	#register-link
+		a
 			color: #6DC675
-			text-decoration: none   
+			font-size: 15px
+			font-weight: 300
+			text-decoration: none
+		margin-top: 30px
+		
