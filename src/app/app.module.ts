@@ -5,12 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
-import { BibleMainComponent } from './bible-main/bible-main.component';
 
+import { BibleMainComponent } from './bible-main/bible-main.component';
 import { SignupMainComponent } from './signup-main/signup-main.component';
 import { SigninMainComponent } from './signin-main/signin-main.component';
+import { VerseMainComponent } from './verse-main/verse-main.component';
 
 import { routing } from './app.routing';
+import { JsonIndexPipe } from './json-index.pipe';  
 
 // Must export the config
 export const firebaseConfig = {
@@ -25,7 +27,9 @@ export const firebaseConfig = {
     AppComponent,
     SignupMainComponent,
     SigninMainComponent,
-    BibleMainComponent
+    BibleMainComponent, 
+    VerseMainComponent, 
+    JsonIndexPipe
   ],
   imports: [
     BrowserModule,

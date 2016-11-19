@@ -1,8 +1,16 @@
 
 <div id="bible-container">
-<h1>Genesis 1</h1>
+<div *ngFor="let chapter of chapters; let i=index ">
+  <h1>{{(chapter | async | arrayInd:0)?.book}} {{(chapter | async | arrayInd:0)?.chapter}}</h1> 
+  <span *ngFor="let verse of chapter | async; let j=index ">
+    <span class="verse-num"
+    [class.blue]="(verseStats[i] | async | arrayInd:j)?.questionsCount == 0"
+    [class.red]="(verseStats[i] | async | arrayInd:j)?.hasNew"
+    [class.yellow]="(verseStats[i] | async | arrayInd:j)?.questionsCount > 0">{{verse.verse | json}}</span>{{(verse.text | json).slice(1, -1).split('\\\\\\').join("")}} 
+  </span>
+</div>
 
-<span><span>1 </span>In the beginning God created the heavens and the earth. </span> 
+<!-- <span><span>1 </span>In the beginning God created the heavens and the earth. </span> 
 
 <span> <span>2 </span>Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was 
 hovering over the waters.</span>
@@ -22,5 +30,5 @@ hovering over the waters.</span>
 <span><span>9 </span>And God said, “Let the water under the sky be gathered to one place, and let dry ground appear.” And it was so.</span>
 
 <span><span>10 </span>God called the dry ground “land,” and the gathered waters he called “seas.” And God saw that it was good.</span>
-
+ -->
 </div>
