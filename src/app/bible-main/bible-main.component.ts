@@ -1,4 +1,5 @@
-import { Component, OnInit, Pipe } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
 import { AngularFire, FirebaseListObservable} from 'angularfire2'; 
 
 @Component({
@@ -7,39 +8,48 @@ import { AngularFire, FirebaseListObservable} from 'angularfire2';
   styleUrls: ['./bible-main.component.styl']
 })
 export class BibleMainComponent implements OnInit {
+  af: AngularFire; 
+  router: Router; 
   chapters: FirebaseListObservable<any>[]; 
   verseStats: FirebaseListObservable<any>[]; 
 
-  constructor(af: AngularFire) { 
+  nextChapter; 
+
+  constructor(af: AngularFire, router: Router) {
+    this.af = af; 
+    this.router = router; 
     this.chapters = []; 
-    this.chapters.push(af.database.list('/translations/web/verses', { 
-      query: { 
-        orderByChild: 'chapter', 
-        equalTo: 1
-      }
-    })); 
-
     this.verseStats = []; 
-    this.verseStats.push(af.database.list('/verseStats', {
-      query: {
-        orderByChild: 'chapter', 
-        equalTo: 1
-      }
-    }));
-
+    this.nextChapter = 1; 
   }
 
   ngOnInit() {
+    this.getChapter('Genesis'); 
   }
-}
 
-@Pipe({
-  name: 'first'
-})
-
-export class First {
-  transform(val, args) {
-    if (val === null) return val; 
-    return val[0]; 
+  onVerseSelect(verseKey) {
+    this.router.navigate(['/verses', verseKey]);
   }
+
+  onScrollDown() {
+    this.getChapter('Genesis'); 
+  }
+
+  getChapter(book) {
+    this.chapters.push(this.af.database.list('/translations/web/verses',  { 
+      query: { 
+        orderByChild: 'chapter', 
+        equalTo: this.nextChapter
+      }
+    }));
+    this.verseStats.push(this.af.database.list('/verseStats', {
+      query: {
+        orderByChild: 'chapter', 
+        equalTo: this.nextChapter
+      }
+    }));
+
+    this.nextChapter ++; 
+  }
+
 }

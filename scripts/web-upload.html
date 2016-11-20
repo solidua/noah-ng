@@ -50,7 +50,8 @@
         book: 'Genesis', 
         chapter: verse.field[2], 
         verse: verse.field[3],
-        translation: 'web'
+        translation: 'web',
+        newParagraph: false
       }); 
 
       database.ref('verseStats/' + verseId).set({

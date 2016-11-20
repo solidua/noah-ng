@@ -14,6 +14,8 @@ import { VerseMainComponent } from './verse-main/verse-main.component';
 import { routing } from './app.routing';
 import { JsonIndexPipe } from './json-index.pipe';  
 
+import { InfiniteScrollModule } from 'angular2-infinite-scroll'; 
+
 // Must export the config
 export const firebaseConfig = {
   apiKey: "AIzaSyBJBMTX6PcR1bZTm-Ns-Qg5zPFuZv06fPE",
@@ -36,7 +38,8 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    routing
+    routing,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
