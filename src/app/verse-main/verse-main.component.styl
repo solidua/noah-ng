@@ -1,10 +1,126 @@
 #verse-container
+  background-color: #F8F8F8
+  height: 100%
+  display: flex
+  flex-direction: column
   #verse-card
-    width: 90%
-    height: 75px
+    background-color: #FFFFFF
+    box-sizing: border-box
+    width: 83%
+    height: 213px
+    margin-top: 39px
     margin-left: auto
     margin-right: auto
+    margin-bottom: 15px
+    padding: 15px 21px
+    border-radius: 10px
+    box-shadow: 6px 18px 17px rgba(0,0,0,.10)
+    position: relative
     h1
-      color: green
+      color: #c4c4c4
       text-align: center
+      font-size: 18px
+      margin-botom: 18px
+      font-weight: 300
+    p
+      font-size: 16px
+      line-height: 26.4px
+  #questions-list-container
+    box-sizing: border-box
+    background-color: white
+    width: 100%
+    border-radius: 10px 10px 0px 0px
+    height: 100%
+    padding: 15px
+    flex: 1
+    #top-btn
+      width: 87px
+      height: 40px 
+      border: none
+      border-radius: 100px
+      font-size: 12px
+      font-weight: 300
+      color: #C4C4C4
+      background: #f7f7f7 url(assets/images/top-sort.png) 49px 10px no-repeat
+      padding-top: 2px
+      padding-right: 38px
+      float: right
+    .verse-question-container
+      clear: both
+      box-sizing: border-box 
+      padding: 20px 0px
+      p
+        font-weight: 300
+        font-size: 15px
+        margin: 0
+        margin-bottom: 7px
+      .verse-question-stats
+        font-size: 11px 
+        color: #C4C4C4
+        font-weight: 300
+        .heart
+          cursor: pointer
+    hr
+      border-top: 2px solid #F8F8F8
+
+  #ask-btn
+    position: fixed
+    bottom: 14px
+    margin-left: auto
+    margin-right: auto
+    left: 0 
+    right: 0
+    height: 45px
+    width: 90%
+    background-color: #FF8282
+    color: white 
+    font-size: 14px
+    border: none
+    border-radius: 10px
+    box-shadow: 6px 18px 17px rgba(0,0,0,.10) 
+    cursor: pointer
+    
+  #ask-question-container
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: white
+    border-radius: 10px 10px 0px 0px
+    padding: 46px 0px 48px 0px
+    box-sizing: border-box
+    #question-form
+      width: 100%
+      height: 100%
+      display: flex
+      flex-direction: column
+      #question-textarea
+        flex-grow: 1
+        background-color: white
+        padding: 15px
+        border: 0
+        border-top: 1px solid rgba(0,0,0,.15)
+        border-bottom: 1px solid rgba(0,0,0,.15)
+        resize: none
+        font-size: 14px
+        font-weight: 300
+      button 
+        border: none 
+        background-color: rgba(0,0,0,.06)
+        border-radius: 3px
+        font-size: 16px
+        font-weight: 300
+        padding: 7px 15px
+        position: absolute
+        right: 15px
+        bottom: 8px
+        font-weight: 300
+      
+      
+      
+    
+
+
+
+    
+      
     

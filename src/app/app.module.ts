@@ -14,7 +14,9 @@ import { VerseMainComponent } from './verse-main/verse-main.component';
 import { routing } from './app.routing';
 import { JsonIndexPipe } from './json-index.pipe';  
 
-import { InfiniteScrollModule } from 'angular2-infinite-scroll'; 
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { VerseQuestionComponent } from './verse-question/verse-question.component';
+import { QuestionMainComponent } from './question-main/question-main.component'; 
 
 // Must export the config
 export const firebaseConfig = {
@@ -31,7 +33,7 @@ export const firebaseConfig = {
     SigninMainComponent,
     BibleMainComponent, 
     VerseMainComponent, 
-    JsonIndexPipe
+    JsonIndexPipe, VerseQuestionComponent, QuestionMainComponent
   ],
   imports: [
     BrowserModule,
