@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'; 
-import { AngularFire, FirebaseObjectObservable } from 'angularfire2'; 
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2'; 
+import { Question } from '../question'; 
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -12,16 +13,28 @@ export class VerseMainComponent implements OnInit {
   verse: FirebaseObjectObservable<any>; 
   newQuestion: Question; 
   hideAskQuestion: boolean; 
+  enableAskButton: boolean
+  questions: FirebaseListObservable<any>; 
 
   constructor(private route: ActivatedRoute, private af: AngularFire) { 
     this.hideAskQuestion = true; 
+    this.enableAskButton = false; 
     this.newQuestion = new Question("", "TODO", "TODO", 0, 0);   
   }
 
   ngOnInit() {
+    //what does map do? why does it have to be an obeservable?
     this.route.params.map(params => params['id'])
       .subscribe((id) => {
+        this.enableAskButton = true; 
+        this.newQuestion = new Question("", id, "TODO", 0, 0);
         this.verse = this.af.database.object('/translations/web/verses/' + id); 
+        this.questions = this.af.database.list('/questions', {
+          query: {
+            orderByChild: 'verseId',
+            equalTo: id
+          }
+        })
       }); 
   }
 
@@ -30,18 +43,9 @@ export class VerseMainComponent implements OnInit {
   }
 
   submitQuestion() {
-    console.log(this.newQuestion);
-    this.af.database.list('questions').push(this.newQuestion)
+    this.af.database.list('questions').push(this.newQuestion).then(success => {
+      console.log(success); 
+    }); 
+    this.toggleAskQuestion(); 
   }
-}
-
-
-class Question {
-  constructor (
-    public text: string, 
-    public verseId: string,
-    public authorId: string,
-    public likes: number,
-    public views: number
-  ){}
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router'; 
+import { Question } from '../question'; 
 
 @Component({
   selector: 'app-verse-question',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./verse-question.component.styl']
 })
 export class VerseQuestionComponent implements OnInit {
+  @Input() question: Question; 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  
   }
 
+  onQuestionSelect() {
+    this.router.navigate(['/questions']);    
+  }
 }

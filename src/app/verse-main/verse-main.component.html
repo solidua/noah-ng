@@ -5,12 +5,14 @@
   </div>
   <div id="questions-list-container">
     <button id="top-btn">TOP</button>
-    <app-verse-question></app-verse-question>
-    <hr>
-    <app-verse-question></app-verse-question>
+    <div *ngFor="let question of questions | async;">
+      <app-verse-question [question]="question"></app-verse-question>
+      <hr>
+    </div>
   </div>
 
-  <button id="ask-btn" (click)="toggleAskQuestion()">Ask Question</button>
+  <button id="ask-btn" (click)="toggleAskQuestion()" [disabled]="!enableAskButton"
+  >Ask Question</button>
 
   <div id="ask-question-container" [hidden]="hideAskQuestion">
     <form id="question-form" (ngSubmit)="submitQuestion()" #questionForm="ngForm">
