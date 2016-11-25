@@ -38,6 +38,7 @@ export class QuestionMainComponent implements OnInit {
 
   toggleAnswerQuestion() {
     this.hideAnswerQuestion = !this.hideAnswerQuestion; 
+    window.scrollTo(0,0);
   }
 
   submitAnswer() {

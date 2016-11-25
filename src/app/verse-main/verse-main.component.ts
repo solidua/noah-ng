@@ -38,7 +38,8 @@ export class VerseMainComponent implements OnInit {
   }
 
   toggleAskQuestion() {
-    this.hideAskQuestion = !this.hideAskQuestion; 
+    this.hideAskQuestion = !this.hideAskQuestion;
+    window.scrollTo(0,0); 
   }
 
   submitQuestion() {
