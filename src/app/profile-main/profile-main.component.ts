@@ -7,10 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile-main.component.styl']
 })
 export class ProfileMainComponent implements OnInit {
+	hideQuestions: boolean;
 
-  constructor() { }
+  constructor() { 
+  	this.hideQuestions = false;
+  }
 
   ngOnInit() {
   }
+  
+  showQuestions() {
+  	this.hideQuestions = false;
+  }
+  
+  showAnswers() {
+  	this.hideQuestions = true;
+  }
+ 
 
 }

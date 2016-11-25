@@ -1,11 +1,18 @@
+
 <div id="profile-container">
 	<div id="profile-details">
-		<h1> Profile Name </h1>
+		<div id="profile-picture"></div>
+		<div id="profile-info">
+		<div id="profile-name">
+			<h1> Puppo </h1>
+		</div>
+		<div id="profile-info">United States</div>
+		</div>
 	</div>
 	<nav>
-		<button>Questions</button>
-		<button>Answers</button>
+		<button id="questions-button" (click)="showQuestions()" [class.highlighted]="hideQuestions">Questions</button>
+		<button id="answers-button" (click)="showAnswers()" [class.highlighted]="!hideQuestions">Answers</button>
 	</nav>
-	<div id="profile-questions"></div>
-	<div id="profile-answers"></div>
+	<div id="profile-questions" [hidden]="hideQuestions"> Questions go here</div>
+	<div id="profile-answers" [hidden]="!hideQuestions">Answers go here</div>
 </div>
