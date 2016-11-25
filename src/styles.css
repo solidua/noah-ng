@@ -15,13 +15,13 @@ html, body {
 
 @font-face {
  font-family: HelveticaNeue;
- src: url(/assets/HelveticaNeue-Thin.otf);
+ src: url(/assets/fonts/HelveticaNeue-Thin.otf);
  font-weight: normal;
 }
 
 @font-face {
  font-family: HelveticaNeue;
- src: url(/assets/HelveticaNeue-Light.otf);
+ src: url(/assets/fonts/HelveticaNeue-Light.otf);
  font-weight: 300;
 }
 
