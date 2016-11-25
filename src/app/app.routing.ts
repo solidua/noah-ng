@@ -12,7 +12,7 @@ import { ProfileMainComponent } from './profile-main/profile-main.component';
 const appRoutes: Routes = [
   { path: '', component: BibleMainComponent}, 
   { path: 'verses/:id', component: VerseMainComponent},
-  { path: 'questions', component: QuestionMainComponent},
+  { path: 'questions/:id', component: QuestionMainComponent},
 	{ path: 'signup', component: SignupMainComponent },
 	{ path: 'signin', component: SigninMainComponent },
 	{ path: 'profile', component: ProfileMainComponent }

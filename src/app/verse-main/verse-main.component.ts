@@ -19,7 +19,6 @@ export class VerseMainComponent implements OnInit {
   constructor(private route: ActivatedRoute, private af: AngularFire) { 
     this.hideAskQuestion = true; 
     this.enableAskButton = false; 
-    this.newQuestion = new Question("", "TODO", "TODO", 0, 0);   
   }
 
   ngOnInit() {

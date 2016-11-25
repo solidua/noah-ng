@@ -1,22 +1,26 @@
 <div id="question-container">
   <div id="question-inner-container">
-    <div id="question-answer-container">
-      <p>Why did God seperate light from the darknesss?</p>
+    <div id="question-card">
+      <p>{{(question | async)?.text}}</p>
       <div id="question-stats">
-        <i class="fa fa-heart-o"></i>25 &#183; 2 Answers &#183; 7 days ago
+        <i class="fa fa-heart-o"></i> 25 &#183; 2 Answers &#183; 7 days ago by Noah
       </div>
     </div>
-    <div>
-      <div class="question-answer-container">
-        <div class="answer-stats">
-          Moses &#183; 5 days ago &#183; 15
-        </div>
-        <p>
-          God seperated light and darkness to create day time and night time.
-        </p>
-      </div>
+    <hr>
+
+    <div *ngFor="let answer of answers | async">
+      <app-question-answer [answer]="answer"></app-question-answer>
       <hr>
     </div>
+
   </div>
-  <button></button>
+  <button id="answer-btn" (click)="toggleAnswerQuestion()">Answer this Question</button>
+
+  <div id="answer-question-container" [hidden]="hideAnswerQuestion">
+    <form id="answer-form" (ngSubmit)="submitAnswer()" #answerForm="ngForm">
+      <textarea id="answer-textarea" placeholder="type your answer" [(ngModel)]="newAnswer.text" name="text"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>  
+
 </div>
