@@ -28,7 +28,7 @@
       }
     }
   ],
-  "addons": ["assets/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"],
+  "addons": [],
   "packages": [],
   "e2e": {
     "protractor": {
