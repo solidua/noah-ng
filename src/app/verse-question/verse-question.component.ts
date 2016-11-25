@@ -19,4 +19,5 @@ export class VerseQuestionComponent implements OnInit {
     console.log(this.question.$key); 
     this.router.navigate(['/questions', this.question.$key]);    
   }
+
 }

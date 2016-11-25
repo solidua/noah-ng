@@ -3,36 +3,60 @@
   height: 100%
   display: flex
   flex-direction: column
-  #verse-card
-    background-color: #FFFFFF
-    box-sizing: border-box
-    width: 83%
-    height: 213px
-    margin-top: 39px
-    margin-left: auto
-    margin-right: auto
-    margin-bottom: 15px
-    padding: 15px 21px
-    border-radius: 10px
-    box-shadow: 6px 18px 17px rgba(0,0,0,.10)
-    position: relative
-    h1
-      color: #c4c4c4
-      text-align: center
-      font-size: 18px
-      margin-botom: 18px
-      font-weight: 300
-    p
-      font-size: 16px
-      line-height: 26.4px
+  #card-container
+    display: table
+    width: 100%
+    table-layout: fixed
+    .card-cell
+      display: table-cell
+    .card-cell-middle
+      display: table-cell
+      width: 83%
+      vertical-align: top
+    #left-card
+      height: 191px
+      width: 47%
+      background-color: white
+      float: left
+      border-radius: 0px 10px 10px 0px
+      margin-top: 50px
+      box-shadow: 3px 9px 17px rgba(0,0,0,.10)
+    #right-card
+      height: 191px
+      width: 47%
+      background-color: white
+      border-radius: 10px 0px 0px 10px
+      float: right
+      margin-top: 50px
+      box-shadow: 3px 9px 17px rgba(0,0,0,.10)
+    #verse-card
+      background-color: #FFFFFF
+      box-sizing: border-box
+      height: 213px
+      margin-top: 39px
+      margin-left: auto
+      margin-right: auto
+      margin-bottom: 15px
+      padding: 15px 21px
+      border-radius: 10px
+      box-shadow: 6px 18px 17px rgba(0,0,0,.10)
+      position: relative
+      h1
+        color: #c4c4c4
+        text-align: center
+        font-size: 18px
+        margin-botom: 18px
+        font-weight: 300
+      p
+        font-size: 16px
+        line-height: 26.4px
   #questions-list-container
     box-sizing: border-box
     background-color: white
     width: 100%
     border-radius: 10px 10px 0px 0px
-    margin-bottom: 50px
     height: 100%
-    padding: 15px
+    padding: 20px 15px
     flex: 1
     #top-btn
       width: 87px
@@ -64,34 +88,54 @@
     hr
       margin: 0
       border-top: solid #F8F8F8
+      border-left: white
       border-top-width: 1px
       border-bottom-width: 1px
+    #sort-top
+      background: url(assets/images/top-sort.png) no-repeat
+      height: 20px
+      width: 22px
+      float: left
+      margin-top: 8px
+      margin-left: 15px
+    #ask-btn
+      border: none
+      border-radius: 10px
+      background-color: #2A97EB
+      color: white
+      padding: 11px 30px
+      font-size: 14px
+      font-weight: 300
+      float: right
 
-  #ask-btn
-    position: fixed
-    bottom: 14px
-    margin-left: auto
-    margin-right: auto
-    left: 0 
-    right: 0
-    height: 45px
-    width: 90%
-    background-color: #FF8282
-    color: white 
-    font-size: 14px
-    border: none
-    border-radius: 10px
-    box-shadow: 6px 18px 17px rgba(0,0,0,.10) 
-    cursor: pointer
-    
   #ask-question-container
     position: absolute
     width: 100%
     height: 100%
     background-color: white
+    border: none
     border-radius: 10px 10px 0px 0px
-    padding: 46px 0px 48px 0px
-    box-sizing: border-box
+    #question-options 
+      margin-top: 80px
+      border-top: 1px solid rgba(0,0,0,.15)
+      border-bottom: 1px solid rgba(0,0,0,.15)
+      padding: 16px 40px
+      #bold-btn
+        display: inline-block
+        height: 21px
+        width: 16px
+        background-color: transparent
+        background: url(assets/images/bold.png) no-repeat
+        background-size: cover
+        margin-right: 40px
+      #italicize-btn
+        display: inline-block
+        height: 19px
+        width: 18px
+        background-color: transparent
+        background: url(assets/images/italicize.png) no-repeat
+        background-size: cover
+        
     #question-form
       width: 100%
       height: 100%
@@ -100,24 +144,35 @@
       #question-textarea
         flex-grow: 1
         background-color: white
-        padding: 15px
+        padding: 21px 18px
         border: 0
-        border-top: 1px solid rgba(0,0,0,.15)
         border-bottom: 1px solid rgba(0,0,0,.15)
         resize: none
+        font-size: 32px
+        font-weight: 300
+      #submit-button 
+        border: none 
+        background-color: #4990E2
+        color: white
+        border-radius: 10px
         font-size: 14px
         font-weight: 300
-      button 
-        border: none 
-        background-color: rgba(0,0,0,.06)
-        border-radius: 3px
-        font-size: 16px
-        font-weight: 300
-        padding: 7px 15px
+        padding: 11px 30px
         position: absolute
+        top: 20px
         right: 15px
-        bottom: 8px
         font-weight: 300
+    #exit-button
+      position: absolute
+      top: 29px
+      left: 33px 
+      border: none
+      background-color: transparent
+      background: url(assets/images/exit.png) no-repeat
+      height: 23px
+      width: 23px
+              
+
       
       
       

@@ -44,7 +44,8 @@ export class VerseMainComponent implements OnInit {
   submitQuestion() {
     this.af.database.list('questions').push(this.newQuestion).then(success => {
       console.log(success); 
+      this.newQuestion = new Question("", this.newQuestion.verseId, "TODO", 0, 0);
+      this.toggleAskQuestion();
     }); 
-    this.toggleAskQuestion(); 
   }
 }

@@ -1,23 +1,43 @@
 <div id="verse-container">
-  <div id="verse-card">
-    <h1>{{(verse | async)?.book}} {{(verse | async)?.chapter}}:{{(verse | async)?.verse}}</h1>
-    <p>{{(verse | async)?.text}}</p>
+
+
+  <div id="card-container">
+    <div class="card-cell">
+      <div id="left-card"></div>
+    </div>
+    <div class="card-cell-middle">
+      <div id="verse-card">
+        <h1>{{(verse | async)?.book}} {{(verse | async)?.chapter}}:{{(verse | async)?.verse}}</h1>
+        <p>{{(verse | async)?.text}}</p>
+      </div>
+    </div>
+    <div class="card-cell">
+      <div id="right-card"></div>
+    </div>
   </div>
+
+
   <div id="questions-list-container">
-    <button id="top-btn">TOP</button>
+    <div id="question-list-options">
+      <div id="sort-top"></div>
+      <button id="ask-btn" (click)="toggleAskQuestion()" [disabled]="!enableAskButton">Ask Question</button>
+    </div>
     <div *ngFor="let question of questions | async;">
       <app-verse-question [question]="question"></app-verse-question>
       <hr>
     </div>
   </div>
 
-  <button id="ask-btn" (click)="toggleAskQuestion()" [disabled]="!enableAskButton"
-  >Ask Question</button>
-
+  <!-- this should be factored out into its own component-->
   <div id="ask-question-container" [hidden]="hideAskQuestion">
+    <button id="exit-button" (click)="toggleAskQuestion()"></button>
+    <div id="question-options">
+      <span id="bold-btn"></span>
+      <span id="italicize-btn"></span>
+    </div>
     <form id="question-form" (ngSubmit)="submitQuestion()" #questionForm="ngForm">
-      <textarea id="question-textarea" placeholder="Ask a question" [(ngModel)]="newQuestion.text" name="text"></textarea>
-      <button type="submit">Submit</button>
+      <textarea id="question-textarea" placeholder="type question here" [(ngModel)]="newQuestion.text" name="text"></textarea>
+      <button id="submit-button" type="submit">Submit</button>
     </form>
   </div>
 </div>
