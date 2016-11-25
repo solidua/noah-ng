@@ -5,16 +5,17 @@
       <div id="question-stats">
         <i class="fa fa-heart-o"></i> 25 &#183; 2 Answers &#183; 7 days ago by Noah
       </div>
+      <button id="answer-btn">Answer this</button>
     </div>
-    <hr>
 
-    <div *ngFor="let answer of answers | async">
+    <div id="answers-container" *ngFor="let answer of answers | async">
       <app-question-answer [answer]="answer"></app-question-answer>
-      <hr>
     </div>
 
   </div>
-  <button id="answer-btn" (click)="toggleAnswerQuestion()">Answer this Question</button>
+<!--   <button id="answer-btn" (click)="toggleAnswerQuestion()">Answer this Question</button> -->
+
+
 
   <div id="answer-question-container" [hidden]="hideAnswerQuestion">
     <form id="answer-form" (ngSubmit)="submitAnswer()" #answerForm="ngForm">

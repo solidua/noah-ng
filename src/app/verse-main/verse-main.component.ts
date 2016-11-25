@@ -38,13 +38,15 @@ export class VerseMainComponent implements OnInit {
   }
 
   toggleAskQuestion() {
-    this.hideAskQuestion = !this.hideAskQuestion; 
+    this.hideAskQuestion = !this.hideAskQuestion;
+    window.scrollTo(0,0); 
   }
 
   submitQuestion() {
     this.af.database.list('questions').push(this.newQuestion).then(success => {
       console.log(success); 
+      this.newQuestion = new Question("", this.newQuestion.verseId, "TODO", 0, 0);
+      this.toggleAskQuestion();
     }); 
-    this.toggleAskQuestion(); 
   }
 }
