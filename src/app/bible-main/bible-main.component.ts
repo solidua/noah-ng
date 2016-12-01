@@ -29,6 +29,7 @@ export class BibleMainComponent implements OnInit {
 
   onVerseSelect(verseKey) {
     this.router.navigate(['/verses', verseKey]);
+    window.scrollTo(0,0); 
   }
 
   onScrollDown() {

@@ -6,7 +6,7 @@
   (scrolled) = "onScrollDown()">
   <div *ngFor="let chapter of chapters; let i=index ">
     <h1>{{(chapter | async | jsonIndex:0)?.book}} {{(chapter | async | jsonIndex:0)?.chapter}}</h1> 
-    <span *ngFor="let verse of chapter | async; let j=index ">
+    <span class="verse-text" *ngFor="let verse of chapter | async; let j=index ">
       <span class="verse-num"
       [class.blue]="(verseStats[i] | async | jsonIndex:j)?.questionsCount == 0"
       [class.red]="(verseStats[i] | async | jsonIndex:j)?.hasNew"
