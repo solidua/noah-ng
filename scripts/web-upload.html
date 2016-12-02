@@ -10,6 +10,7 @@
 </body>
 <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
 <script type="text/javascript" src="web.js"></script>
+<script type="text/javascript" src="paragraphs.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -29,14 +30,12 @@
     return s; 
   }
 
-
   web.resultset.row.forEach(function(verse) {
     if (verse.field[1] == 1){
       var verseId = "1" + pad(verse.field[2], 3) + pad(verse.field[3], 3);  
       var verseText = verse.field[4];
 
       if (verseText.indexOf('{') != -1) {
-        console.log('hello'); 
         var start = verseText.indexOf('{'); 
         var end = verseText.indexOf('}'); 
         verseText = verseText.slice(0, start) + verseText.slice(end + 1);  
@@ -44,14 +43,13 @@
 
       // verseText = verseText.replace(/\\\\'/g, '\''); 
 
-
       database.ref('translations/web/verses/' + verseId).set({
         text: verseText,
         book: 'Genesis', 
         chapter: verse.field[2], 
         verse: verse.field[3],
         translation: 'web',
-        newParagraph: false
+        newParagraph: paragraphs[verse.field[2] - 1][verse.field[2]].indexOf(verse.field[3]) != -1
       }); 
 
       database.ref('verseStats/' + verseId).set({
