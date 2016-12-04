@@ -1,6 +1,7 @@
 <div class="question-answer-container">
   <div class="answer-stats">
-    <i class="fa fa-heart" [class.red]="(currentUserAnswerLikes | async)?.isLiked" (click)="onLikeSelect()"></i> 25 Moses &#183; 5 days ago &#183; 15
+    <i class="fa fa-heart" [class.red]="(currentUserAnswerLikes | async)?.isLiked" (click)="onLikeSelect()"></i> 
+    {{answer.likes}} Moses &#183; 5 days ago &#183; 15
   </div>
   <p>
     {{answer.text}}

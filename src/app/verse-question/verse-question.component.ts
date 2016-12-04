@@ -22,7 +22,6 @@ export class VerseQuestionComponent implements OnInit {
                             '/questions/' + 
                             this.question.$key);
     this.currentUserQuestionLikes.subscribe((status) => {
-      console.log('hewwo'); 
       this.isLiked = status.isLiked; 
     })
   }
@@ -33,13 +32,25 @@ export class VerseQuestionComponent implements OnInit {
   }
 
   onLikeSelect() {
-    console.log('like selected'); 
-    this.currentUserQuestionLikes.update({
-      isLiked: !this.isLiked
-    }); 
-    //update user's like for this question
-    //update total likes for this question
-    //change image of users heart of this quesiton. 
+    if (this.isLiked) {
+      this.currentUserQuestionLikes.update({
+        isLiked: !this.isLiked
+      }).then((success) => {
+        this.question.likes--; 
+        this.af.database.object('/questions/' + this.question.$key).update({
+                                  likes: this.question.likes
+                                }); 
+      });
+    } else {
+      this.currentUserQuestionLikes.update({
+        isLiked: !this.isLiked
+      }).then((success) => {
+        this.question.likes++; 
+        this.af.database.object('/questions/' + this.question.$key).update({
+                                  likes: this.question.likes
+                                }); 
+      });
+    }
   }
 
 }

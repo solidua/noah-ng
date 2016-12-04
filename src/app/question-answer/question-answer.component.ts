@@ -21,15 +21,29 @@ export class QuestionAnswerComponent implements OnInit {
                                                           '/answers/' + 
                                                           this.answer.$key); 
     this.currentUserAnswerLikes.subscribe((status) => {
-      console.log('hewwo'); 
       this.isLiked = status.isLiked; 
     })
   }
 
   onLikeSelect() {
-    console.log('like selected'); 
-    this.currentUserAnswerLikes.update({
-      isLiked: !this.isLiked
-    }); 
+    if (this.isLiked) {
+      this.currentUserAnswerLikes.update({
+        isLiked: !this.isLiked
+      }).then((success) => {
+        this.answer.likes--; 
+        this.af.database.object('/answers/' + this.answer.$key).update({
+                                  likes: this.answer.likes
+                                }); 
+      });
+    } else {
+      this.currentUserAnswerLikes.update({
+        isLiked: !this.isLiked
+      }).then((success) => {
+        this.answer.likes++; 
+        this.af.database.object('/answers/' + this.answer.$key).update({
+                                  likes: this.answer.likes
+                                }); 
+      });
+    }
   }
 }
