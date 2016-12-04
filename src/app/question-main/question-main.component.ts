@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; 
-import { AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2'; 
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable, AngularFireAuth} from 'angularfire2'; 
 import { Answer }  from '../answer'; 
 import { Question } from '../question'; 
 
@@ -16,7 +16,7 @@ export class QuestionMainComponent implements OnInit {
   answers: FirebaseListObservable<any>; 
   enableAnswerButton : boolean; 
 
-  constructor(private af: AngularFire, private route: ActivatedRoute) { 
+  constructor(private af: AngularFire, private route: ActivatedRoute, private afAuth: AngularFireAuth) { 
     this.hideAnswerQuestion = true; 
     this.enableAnswerButton = false; 
   }
@@ -25,7 +25,7 @@ export class QuestionMainComponent implements OnInit {
      this.route.params.map(params => params['id'])
        .subscribe((id) => {
          this.enableAnswerButton = true; 
-         this.newAnswer = new Answer("", id, "TODO", 0, 0); 
+         this.newAnswer = new Answer("", id, this.afAuth.getAuth().uid, 0, 0); 
          this.question = this.af.database.object('/questions/' + id); 
          this.answers = this.af.database.list('/answers', {
            query: {
@@ -44,7 +44,8 @@ export class QuestionMainComponent implements OnInit {
   submitAnswer() {
     this.af.database.list('/answers').push(this.newAnswer).then(success => {
       console.log(success); 
+      this.newAnswer = new Answer("", this.newAnswer.questionId, this.afAuth.getAuth().uid, 0, 0); 
+      this.toggleAnswerQuestion(); 
     }); 
-    this.toggleAnswerQuestion(); 
   }
 }

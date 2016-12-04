@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 
-import { AngularFire, FirebaseListObservable} from 'angularfire2'; 
+import { AngularFire, FirebaseListObservable, AngularFireAuth} from 'angularfire2'; 
 
 @Component({
   selector: 'app-bible-main',
@@ -9,14 +9,16 @@ import { AngularFire, FirebaseListObservable} from 'angularfire2';
 })
 export class BibleMainComponent implements OnInit {
   af: AngularFire; 
+  afAuth: AngularFireAuth;
   router: Router; 
   chapters: FirebaseListObservable<any>[]; 
   verseStats: FirebaseListObservable<any>[]; 
 
   nextChapter; 
 
-  constructor(af: AngularFire, router: Router) {
+  constructor(af: AngularFire, router: Router, afAuth: AngularFireAuth) {
     this.af = af; 
+    this.afAuth = afAuth; 
     this.router = router; 
     this.chapters = []; 
     this.verseStats = []; 

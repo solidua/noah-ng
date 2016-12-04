@@ -8,7 +8,7 @@
     <h1>{{(chapter | async | jsonIndex:0)?.book}} {{(chapter | async | jsonIndex:0)?.chapter}}</h1> 
     <span class="verse-text" *ngFor="let verse of chapter | async; let j=index ">
       <br [hidden]="!verse.newParagraph">
-      <br [hidden]="!verse.newParagraph">
+      <span [hidden]="!verse.newParagraph">&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <span class="verse-num"
       [class.blue]="(verseStats[i] | async | jsonIndex:j)?.questionsCount == 0"
       [class.red]="(verseStats[i] | async | jsonIndex:j)?.hasNew"
