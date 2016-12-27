@@ -28,6 +28,10 @@ export class VerseQuestionComponent implements OnInit {
 
   onQuestionSelect() {
     console.log(this.question.$key); 
+    this.af.database.object('/questions/' + this.question.$key + '/views').$ref.transaction(value => {
+      value = value + 1; 
+      return value; 
+    }); 
     this.router.navigate(['/questions', this.question.$key]);    
   }
 

@@ -7,6 +7,7 @@ import { AngularFire, FirebaseListObservable, AngularFireAuth} from 'angularfire
   templateUrl: './bible-main.component.html',
   styleUrls: ['./bible-main.component.styl']
 })
+
 export class BibleMainComponent implements OnInit {
   af: AngularFire; 
   afAuth: AngularFireAuth;
@@ -26,11 +27,20 @@ export class BibleMainComponent implements OnInit {
   }
 
   ngOnInit() {
+    //test stuff
+
+    console.log(new Date().toISOString()); 
+
+    //
     this.getChapter('Genesis'); 
   }
 
   onVerseSelect(verseKey) {
-    this.router.navigate(['/verses', verseKey]);
+    this.router.navigate(['/verses', verseKey]);    
+    this.af.database.object('/verseStats/' + verseKey + '/views').$ref.transaction(value => {
+      value = value + 1;  
+      return value; 
+    }); 
     window.scrollTo(0,0); 
   }
 

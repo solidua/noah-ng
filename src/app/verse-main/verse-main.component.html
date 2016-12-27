@@ -20,7 +20,7 @@
   <div id="questions-list-container">
     <div id="question-list-options">
       <div id="sort-top"></div>
-      <button id="ask-btn" (click)="toggleAskQuestion()" [disabled]="!enableAskButton">Ask Question</button>
+      <button id="ask-btn" (click)="toggleAskQuestion()" [disabled]="!enableAskButton1 && !enableAskButton2">Ask Question</button>
     </div>
     <div *ngFor="let question of questions | async;">
       <app-verse-question [question]="question"></app-verse-question>

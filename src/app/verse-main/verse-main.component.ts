@@ -13,20 +13,24 @@ export class VerseMainComponent implements OnInit {
   verse: FirebaseObjectObservable<any>; 
   newQuestion: Question; 
   hideAskQuestion: boolean; 
-  enableAskButton: boolean
+  enableAskButton1: boolean; 
+  enableAskButton2: boolean; 
+  username: string; 
   questions: FirebaseListObservable<any>; 
 
   constructor(private route: ActivatedRoute, private af: AngularFire, private afAuth: AngularFireAuth) { 
     this.hideAskQuestion = true; 
-    this.enableAskButton = false; 
+    this.enableAskButton1 = false; 
+    this.enableAskButton2 = false; 
+    this.username = null; 
   }
 
   ngOnInit() {
     //what does map do? why does it have to be an obeservable?
     this.route.params.map(params => params['id'])
       .subscribe((id) => {
-        this.enableAskButton = true; 
-        this.newQuestion = new Question("", id, this.afAuth.getAuth().uid, 0, 0);
+        this.enableAskButton1 = true; 
+        this.newQuestion = new Question("", id, this.afAuth.getAuth().uid, this.username, 0, 0, "");
         this.verse = this.af.database.object('/translations/web/verses/' + id); 
         this.questions = this.af.database.list('/questions', {
           query: {
@@ -35,6 +39,12 @@ export class VerseMainComponent implements OnInit {
           }
         })
       }); 
+
+    this.afAuth.subscribe(state => {
+      this.username = state.auth.displayName; 
+      this.enableAskButton2 = true; 
+      console.log(this.username); 
+    })
   }
 
   toggleAskQuestion() {
@@ -43,9 +53,11 @@ export class VerseMainComponent implements OnInit {
   }
 
   submitQuestion() {
+    this.newQuestion.author = this.username;
+    this.newQuestion.dateCreated = new Date().toISOString(); 
     this.af.database.list('questions').push(this.newQuestion).then(success => {
       console.log(success); 
-      this.newQuestion = new Question("", this.newQuestion.verseId, this.afAuth.getAuth().uid, 0, 0);
+      this.newQuestion = new Question("", this.newQuestion.verseId, this.afAuth.getAuth().uid, this.username, 0, 0, "");
       this.toggleAskQuestion();
     }); 
   }

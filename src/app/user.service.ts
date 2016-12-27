@@ -14,11 +14,12 @@ export class UserService {
     this.afAuth.createUser(credentials).then((authData) => {
       console.log('successfully created user') 
       credentials = null; 
-      firebase.auth().currentUser.updateProfile({displayName: fullname, photoURL: null}).then(function(success){
-        console.log(success)
-      }, function(error) {
-        console.log(error)
-      })
+      this.afAuth.getAuth().auth.updateProfile({
+        displayName: fullname, 
+        photoURL: null
+      }).then(function(success) {
+        console.log(success); 
+      }); 
     }).catch((error) => {
       console.log(error)
     })
