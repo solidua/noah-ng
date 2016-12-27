@@ -14,7 +14,8 @@ import { VerseMainComponent } from './verse-main/verse-main.component';
 import { routing } from './app.routing';
 import { JsonIndexPipe } from './json-index.pipe';  
 
-import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll'; 
+import { MomentModule } from 'angular2-moment'; 
 import { VerseQuestionComponent } from './verse-question/verse-question.component';
 import { QuestionMainComponent } from './question-main/question-main.component';
 import { QuestionAnswerComponent } from './question-answer/question-answer.component'; 
@@ -44,7 +45,8 @@ export const firebaseConfig = {
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     routing,
-    InfiniteScrollModule
+    InfiniteScrollModule, 
+    MomentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

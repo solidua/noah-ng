@@ -62,3 +62,7 @@ export class VerseMainComponent implements OnInit {
     }); 
   }
 }
+
+
+
+

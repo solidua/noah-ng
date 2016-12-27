@@ -24,6 +24,8 @@ export class VerseQuestionComponent implements OnInit {
     this.currentUserQuestionLikes.subscribe((status) => {
       this.isLiked = status.isLiked; 
     })
+
+    console.log(this.question.dateCreated); 
   }
 
   onQuestionSelect() {

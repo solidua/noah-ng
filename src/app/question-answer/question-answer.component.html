@@ -1,7 +1,7 @@
 <div class="question-answer-container">
   <div class="answer-stats">
     <i class="fa fa-heart" [class.red]="(currentUserAnswerLikes | async)?.isLiked" (click)="onLikeSelect()"></i> 
-    {{answer.likes}} {{answer.author}} &#183; 5 days ago &#183; 15
+    {{answer.likes}} {{answer.author}} &#183; {{answer.dateCreated | amTimeAgo}} &#183; 15
   </div>
   <p>
     {{answer.text}}

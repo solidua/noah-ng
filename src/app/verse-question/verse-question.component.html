@@ -2,7 +2,7 @@
   <p (click)="onQuestionSelect()">{{question.text}}</p>
   <div class="verse-question-stats">
     <i class="fa fa-heart" [class.red]="(currentUserQuestionLikes | async)?.isLiked" (click)="onLikeSelect()"></i>
-     {{question.likes}} &#183; 2 Answers &#183; 7 days ago by {{question.author}}
+     {{question.likes}} &#183; 2 Answers &#183; {{question.dateCreated | amTimeAgo}} by {{question.author}}
   </div>
 </div>
 
