@@ -56,9 +56,17 @@ export class VerseMainComponent implements OnInit {
     this.newQuestion.author = this.username;
     this.newQuestion.dateCreated = new Date().toISOString(); 
     this.af.database.list('questions').push(this.newQuestion).then(success => {
-      console.log(success); 
-      this.newQuestion = new Question("", this.newQuestion.verseId, this.afAuth.getAuth().uid, this.username, 0, 0, "");
       this.toggleAskQuestion();
+      this.af.database.object('/verseStats/' + this.newQuestion.verseId + '/questionsCount').$ref.transaction(value => { 
+        value = value + 1;
+        return value;
+      });
+      this.af.database.object('/verseStats/' + this.newQuestion.verseId + '/newestQuestionDate').$ref.transaction(value => { 
+        console.log('HELLO');
+        console.log(this.newQuestion.dateCreated);  
+        return this.newQuestion.dateCreated;  
+      });  
+      // this.newQuestion = new Question("", this.newQuestion.verseId, this.afAuth.getAuth().uid, this.username, 0, 0, "");
     }); 
   }
 }

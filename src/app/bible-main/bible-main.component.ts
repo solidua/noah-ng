@@ -65,4 +65,11 @@ export class BibleMainComponent implements OnInit {
     this.nextChapter ++; 
   }
 
+  checkNew(date) {
+    if (Date.parse(date) - new Date().getTime() < 3600000) {
+      return true;
+    } else {
+      return false;
+    } 
+  }
 }

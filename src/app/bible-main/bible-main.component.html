@@ -11,8 +11,8 @@
       <span [hidden]="!verse.newParagraph">&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <span class="verse-num"
       [class.blue]="(verseStats[i] | async | jsonIndex:j)?.questionsCount == 0"
-      [class.red]="(verseStats[i] | async | jsonIndex:j)?.hasNew"
       [class.yellow]="(verseStats[i] | async | jsonIndex:j)?.questionsCount > 0"
+      [class.red]="checkNew((verseStats[i] | async | jsonIndex:j)?.newestQuestionDate)"
       (click)="onVerseSelect(verse.$key)">{{verse.verse | json}}</span>{{(verse.text | json).slice(1, -1).split('\\\\\\').join("")}} 
     </span>
   </div>
